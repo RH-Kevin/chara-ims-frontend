@@ -1,10 +1,15 @@
 import React from "react";
+import SideNavbar from "./SideNav";
+import DeviceRecord from "./DeviceRecord";
 
 
-export default function Dashboard() {
+const Dashboard = () => {
     return (
         <>
-        Hello
+        <SideNavbar/>
+        <DeviceRecord/>
         </>
     )
 };
+
+export default Dashboard;

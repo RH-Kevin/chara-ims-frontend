@@ -13,8 +13,10 @@ export default function App() {
 
   return (
     <>
-      {showLogin && <Login/>}
-      {showDashboard && <Dashboard/>}
+      {/* {showLogin && <Login/>}
+      {showDashboard && <Dashboard/>} */}
+      <Dashboard/>
+      
     </>
   );
 };
