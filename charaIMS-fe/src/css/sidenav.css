@@ -1,0 +1,11 @@
+* {
+    margin: 0 auto;
+}
+
+.sidenav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: lightgray;
+    width: 200px;
+}

@@ -1,0 +1,31 @@
+* {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.device-record {
+    font-size: 20px;
+}
+
+.main-container {
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    
+}
+
+.main-container-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    position: absolute;
+}
+
+.one {
+    grid-column: 1 / 5;
+    grid-row: 1
+}
+
+.two {
+    grid-column: 6 / 8;
+    grid-row: 2
+}
