@@ -3,11 +3,12 @@ import SideNavbar from "./SideNav";
 import DeviceRecord from "./DeviceRecord";
 
 
+
+
 const Dashboard = () => {
     return (
         <>
-        <SideNavbar/>
-        <DeviceRecord/>
+        Placeholder Text
         </>
     )
 };

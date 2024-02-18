@@ -1,7 +1,41 @@
 import React from 'react';
 import '../css/sidenav.css';
 
-const SideNavbar = () => {
+const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShowGroups, setShowLog }) => {
+
+  const handleDashboardClick = () => {
+    setShowLogin(false);
+    setShowDashboard(true);
+    setShowDeviceList(false);
+    setShowGroups(false);
+    setShowLog(false);
+  };
+
+  const handleDeviceListClick = () => {
+    setShowLogin(false);
+    setShowDashboard(false);
+    setShowDeviceList(true);
+    setShowGroups(false);
+    setShowLog(false);
+  };
+
+  const handleGroupsClick = () => {
+    setShowLogin(false);
+    setShowDashboard(false);
+    setShowDeviceList(false);
+    setShowGroups(true);
+    setShowLog(false);
+  };
+
+  const handleLogClick = () => {
+    setShowLogin(false);
+    setShowDashboard(false);
+    setShowDeviceList(false);
+    setShowGroups(false);
+    setShowLog(true);
+  };
+  
+  
   return (
     <>
         <nav className='sidenav'>
@@ -12,10 +46,10 @@ const SideNavbar = () => {
           <h1 className="text-xl font-semibold" >Chara IMS</h1>
           <br/><br/>
           <ul className="mt-4">
-            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700">Dashboard</a></li>
-            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700">Groups</a></li>
-            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700">Team</a></li>
-            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700">Log</a></li>
+            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleDashboardClick}>Dashboard</a></li>
+            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleDeviceListClick}>Device List</a></li>
+            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleGroupsClick}>Groups</a></li>
+            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleLogClick}>Log</a></li>
           </ul>
         </div>
       </div>

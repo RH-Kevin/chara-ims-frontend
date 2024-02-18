@@ -57,6 +57,7 @@ body {
     margin: 20px;
     background-color: rgb(254, 191, 191);
     height: 150px;
+    padding: 20px;
 }
 
 .notes {
@@ -65,4 +66,25 @@ body {
     margin: 20px;
     background-color: rgb(254, 191, 191);
     height: 150px;
+    padding: 20px;
+}
+
+.user-info {
+    font-size: 25px;
+}
+
+.user-details-card {
+    text-align: left;
+    align-content: left;
+    padding: 20px;
+}
+
+.qr-code {
+    text-align: center;
+    padding: 20px;
+}
+
+.regenerate-qr-button {
+    position: relative;
+    top: 180px;
 }
