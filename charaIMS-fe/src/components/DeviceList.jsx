@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../css/devicelist.css"
 import SideNavbar from "./SideNav";
 import DeviceRecord from "./DeviceRecord";
-import dotenv from 'dotenv';
 
-dotenv.config();
-
-const link = process.env.LINK;
+const link = import.meta.env.VITE_LINK;
 
 
 const DeviceList = () => {
