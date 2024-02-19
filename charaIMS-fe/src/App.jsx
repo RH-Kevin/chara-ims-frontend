@@ -6,9 +6,7 @@ import Dashboard from './components/Dashboard';
 import DeviceList from './components/DeviceList';
 import SideNavbar from './components/SideNav';
 import QRReader from './components/QRReader';
-import dotenv from 'dotenv';
 
-dotenv.config();
 
 
 export default function App() {
