@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const link = process.env.LINK || "http://localhost:3000";
+const link = process.env.REACT_APP_LINK || "http://localhost:3000";
 
 
 const DeviceList = () => {
