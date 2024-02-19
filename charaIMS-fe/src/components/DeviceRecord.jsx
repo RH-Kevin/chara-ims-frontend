@@ -11,16 +11,23 @@ const DeviceRecord = ({ device }) => {
 
     const [deviceDetails, setDeviceDetails] = useState();
     const [showModal, setShowModal] = useState(false);
-    
+    const [openModalId, setOpenModalId] = useState(null);
 
+    const openModal = (id) => {
+        setOpenModalId(id);
+    };
+
+    const closeModal = () => {
+        setOpenModalId(null);
+    };
     
 
     console.log(device);
     return (
         <>
-            <button type="button" className="btn btn-warning" data-toggle="modal" onClick={() => setShowModal(true)}>Details</button>
-            {showModal && 
-                <div className="modal" id={`id${device.id}`} onClick={() => setDeviceDetails(device.id)}>
+            <button type="button" className="btn btn-warning" onClick={() => openModal(device.id)}>Details</button>
+            {openModalId === device.id && 
+                <div className="modal" id={`id${device.id}`}>
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-100 rounded-lg" id="modal-panel">
                     <div className="main-container-grid">
                         <div className="page-title">
@@ -50,7 +57,7 @@ const DeviceRecord = ({ device }) => {
                         <div className="notes block max-w-2xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <h2 className="qr-code-title">Notes</h2>
                         </div>
-                        <button className="close" data-dismiss="modal" onClick={() => setShowModal(false)}>&times;</button>
+                        <button className="close" data-dismiss="modal" onClick={() => closeModal()}>&times;</button>
                     </div>
                 </div>
             </div>}
