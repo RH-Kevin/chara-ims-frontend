@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../css/devicelist.css"
 import SideNavbar from "./SideNav";
 import DeviceRecord from "./DeviceRecord";
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const link = process.env.LINK || "http://localhost:3000";
 
