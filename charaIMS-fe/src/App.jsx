@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Dashboard from './components/Dashboard';
 import DeviceList from './components/DeviceList';
 import SideNavbar from './components/SideNav';
+import QRReader from './components/QRReader';
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
   const [showDeviceList, setShowDeviceList] = useState(false);
   const [showGroups, setShowGroups] = useState(false);
   const [showLog, setShowLog] = useState(false);
+  const [showQR, setShowQR] = useState(false);
   const [showSideNavbar, setShowSideNavbar] = useState(true);
 
 
@@ -21,9 +23,10 @@ export default function App() {
   return (
     <>
       {showLogin && <Login/>}
-      {showSideNavbar && <SideNavbar setShowLogin={setShowLogin} setShowDashboard={setShowDashboard} setShowDeviceList={setShowDeviceList} setShowGroups={setShowGroups} setShowLog={setShowLog}/>}
+      {showSideNavbar && <SideNavbar setShowLogin={setShowLogin} setShowDashboard={setShowDashboard} setShowDeviceList={setShowDeviceList} setShowGroups={setShowGroups} setShowLog={setShowLog} setShowQR={setShowQR}/>}
       {showDashboard && <Dashboard/>}
       {showDeviceList && <DeviceList/>}
+      {showQR && <QRReader/>}
     </>
   );
 };

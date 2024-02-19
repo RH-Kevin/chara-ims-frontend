@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/sidenav.css';
 
-const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShowGroups, setShowLog }) => {
+const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShowGroups, setShowLog, setShowQR }) => {
 
   const handleDashboardClick = () => {
     setShowLogin(false);
@@ -9,6 +9,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowDeviceList(false);
     setShowGroups(false);
     setShowLog(false);
+    setShowQR(false);
   };
 
   const handleDeviceListClick = () => {
@@ -17,6 +18,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowDeviceList(true);
     setShowGroups(false);
     setShowLog(false);
+    setShowQR(false);
   };
 
   const handleGroupsClick = () => {
@@ -25,6 +27,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowDeviceList(false);
     setShowGroups(true);
     setShowLog(false);
+    setShowQR(false);
   };
 
   const handleLogClick = () => {
@@ -33,6 +36,16 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowDeviceList(false);
     setShowGroups(false);
     setShowLog(true);
+    setShowQR(false);
+  };
+
+  const handleQRClick = () => {
+    setShowLogin(false);
+    setShowDashboard(false);
+    setShowDeviceList(false);
+    setShowGroups(false);
+    setShowLog(false);
+    setShowQR(true);
   };
   
   
@@ -50,6 +63,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleDeviceListClick}>Device List</a></li>
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleGroupsClick}>Groups</a></li>
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleLogClick}>Log</a></li>
+            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleQRClick}>Scan QR</a></li>
           </ul>
         </div>
       </div>
