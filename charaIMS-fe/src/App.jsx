@@ -3,18 +3,27 @@ import React, { useState } from "react";
 import { TECollapse, TERipple } from "tw-elements-react";
 import Login from "./components/Login";
 import Dashboard from './components/Dashboard';
+import DeviceList from './components/DeviceList';
+import SideNavbar from './components/SideNav';
 
 
 export default function App() {
   const [showLogin, setShowLogin] = useState(false);
-  const [showDashboard, setShowDashboard] = useState(true);
+  const [showDashboard, setShowDashboard] = useState(false);
+  const [showDeviceList, setShowDeviceList] = useState(false);
+  const [showGroups, setShowGroups] = useState(false);
+  const [showLog, setShowLog] = useState(false);
+  const [showSideNavbar, setShowSideNavbar] = useState(true);
 
-  const toggleShow = () => setShow(!show);
+
+
 
   return (
     <>
       {showLogin && <Login/>}
+      {showSideNavbar && <SideNavbar setShowLogin={setShowLogin} setShowDashboard={setShowDashboard} setShowDeviceList={setShowDeviceList} setShowGroups={setShowGroups} setShowLog={setShowLog}/>}
       {showDashboard && <Dashboard/>}
+      {showDeviceList && <DeviceList/>}
     </>
   );
 };

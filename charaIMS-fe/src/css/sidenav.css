@@ -1,0 +1,32 @@
+* {
+    margin: 0 auto;
+}
+
+.sidenav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: lightgray;
+    width: 250px;
+}
+
+.flex h-sscreen {
+    height: 100%;
+}
+
+.sidenav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidenav ul li {
+    text-align: left;
+}
+
+.p-4 {
+    margin-top: 20px;
+}
+
+.flex h-screen {
+    height: 100px;
+}
