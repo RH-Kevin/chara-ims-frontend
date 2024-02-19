@@ -41,7 +41,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
         <nav className='sidenav'>
         <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="w-1/5 bg-gray-800 text-black">
+      <div className="w-5/5 bg-gray-400 text-black">
         <div className="p-4" >
           <h1 className="text-xl font-semibold" >Chara IMS</h1>
           <br/><br/>
