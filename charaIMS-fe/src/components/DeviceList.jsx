@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../css/devicelist.css"
 import SideNavbar from "./SideNav";
 import DeviceRecord from "./DeviceRecord";
+const dotenv = require('dotenv');
 
-const link = "http://localhost:3000";
+const link = process.env.LINK || "http://localhost:3000";
 
 
 const DeviceList = () => {
