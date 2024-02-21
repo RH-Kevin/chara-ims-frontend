@@ -43,10 +43,9 @@ const EditRecord = ({ device, isOpen, openModal, closeModal }) => {
         }
     }
 
-    console.log(deviceServiceRecord);
     return (
         <>
-            <button type="button" className={editButton} onClick={() => openModal(device.id)}>Details</button>
+            <button type="button" className={editButton} onClick={() => openModal(device.id)}>Edit Record</button>
             {isOpen &&
                 <div className="modal" id={`id${device.id}`}>
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-100 rounded-lg" id="modal-panel">
