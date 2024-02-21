@@ -9,14 +9,23 @@ const link = import.meta.env.VITE_LINK;
 const DeviceList = () => {
 
     const [devices, setDevices] = useState([]);
-    const [openModalId, setOpenModalId] = useState(null);
 
-    const openModal = (id) => {
-        setOpenModalId(id);
+    const [openDeviceModalId, setOpenDeviceModalId] = useState(null);
+    const [openEditModalId, setOpenEditModalId] = useState(null);
+
+    const openDeviceModal = (id) => {
+        setOpenDeviceModalId(id);
+        setOpenEditModalId(null); // Ensure only one modal is open at a time
+    };
+
+    const openEditModal = (id) => {
+        setOpenEditModalId(id);
+        setOpenDeviceModalId(null); // Ensure only one modal is open at a time
     };
 
     const closeModal = () => {
-        setOpenModalId(null);
+        setOpenDeviceModalId(null);
+        setOpenEditModalId(null);
     };
 
     // Get Device List
@@ -70,8 +79,8 @@ const DeviceList = () => {
                                         <td className="whitespace-nowrap  px-6 py-4">{device.warranty}</td>
                                         <td className="whitespace-nowrap  px-6 py-4">{device.status}</td>
                                         <td className="whitespace-nowrap  px-6 py-4">{device.location}</td>
-                                        <td><DeviceRecord device={device} isOpen={openModalId === device.id} openModal={openModal} closeModal={closeModal}/></td>
-                                        <td><EditRecord device={device} isOpen={openModalId === device.id} openModal={openModal} closeModal={closeModal}/></td>
+                                        <td><DeviceRecord device={device} isOpen={openDeviceModalId === device.id} openModal={openDeviceModal} closeModal={closeModal}/></td>
+                                        <td><EditRecord device={device} isOpen={openEditModalId === device.id} openModal={openEditModal} closeModal={closeModal}/></td>
                                     </tr>
                                ))}
                             </tbody>

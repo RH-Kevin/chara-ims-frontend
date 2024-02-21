@@ -1,17 +1,15 @@
 import React from "react";
 
-export const ServiceRecordInput = (props) => {
-  const { className, label, labelName, placeholder, value, onChange } = props;
+export const ServiceRecordInput = ({ value, onChange, className }) => {
+
 
   return (
     <>
-      <label htmlFor={label}>{labelName}</label>
-      <input
-        className={className}
+      <textarea
+        className={"resize-y w-full h-32 p-4 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-grey-500"}
         value={value}
-        placeholder={placeholder}
         onChange={onChange}
-      ></input>
+      ></textarea>
     </>
   );
 };
@@ -20,7 +18,6 @@ ServiceRecordInput.defaultProps = {
   className: "",
   label: "",
   labelName: "",
-  placeholder: "",
   value: "",
   onChange: () => {},
 };

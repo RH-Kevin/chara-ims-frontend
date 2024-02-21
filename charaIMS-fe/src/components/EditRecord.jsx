@@ -5,6 +5,7 @@ import QRGenerator from "./QRGenerator";
 import { ServiceRecordInput } from "./ServiceRecordInput";
 import { NotesInput } from "./NotesInput";
 
+const link = import.meta.env.VITE_LINK;
 
 // Tailwind Styles
 const detailsButton = "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded";
@@ -32,21 +33,49 @@ const EditRecord = ({ device, isOpen, openModal, closeModal }) => {
         setDeviceNotes(e.target.value);
     }
 
-    const updateRecord = async(e) => {
+    const updateDeviceNotes = async(e) => {
         e.preventDefault();
         try {
-            const body = { deviceDetails };
+            const body = {
+                serialNumber: device.serial_number,
+                note: deviceNotes,
+            };
             console.log(body);
-            window.location = "/";
+            const response = await fetch(`${link}/device/notes`,{
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+            //window.location = "/";
+            closeModal();
         } catch (error) {
             console.error(error.message);
         }
     }
 
-    console.log(deviceServiceRecord);
+    const updateDeviceServiceRecord = async(e) => {
+        e.preventDefault();
+        try {
+            const body = {
+                serialNumber: device.serial_number,
+                serviceRecord: deviceServiceRecord,
+            };
+            console.log(body);
+            const response = await fetch(`${link}/device/servicerecord`,{
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            });
+            //window.location = "/";
+            closeModal();
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
     return (
         <>
-            <button type="button" className={editButton} onClick={() => openModal(device.id)}>Details</button>
+            <button type="button" className={editButton} onClick={() => openModal(device.id)}>Edit Record</button>
             {isOpen &&
                 <div className="modal" id={`id${device.id}`}>
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-100 rounded-lg" id="modal-panel">
@@ -88,13 +117,15 @@ const EditRecord = ({ device, isOpen, openModal, closeModal }) => {
                         <div className="service-record block max-w-2xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <h2 className="qr-code-title">Service Record</h2>
                             <ServiceRecordInput className="serviceRecordInput" value={deviceServiceRecord} onChange={handleServiceRecord}/>
+                            <button type="button" className={detailsButton} onClick={updateDeviceServiceRecord}>Save SR Note</button>
                         </div>
                         <div className="notes block max-w-2xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <h2 className="qr-code-title">Notes</h2>
                             <NotesInput className="notesInput" value={deviceNotes} onChange={handleDeviceNotes}/>
+                            <button type="button" className={detailsButton} onClick={updateDeviceNotes}>Save Note</button>
                         </div>
                         <button className="close" data-dismiss="modal" onClick={() => closeModal()}>&times;</button>
-                        <button className="save" data-dismiss="modal" onClick={updateRecord}>Save Changes</button>
+                        {/* <button className="save" data-dismiss="modal" onClick={updateDeviceNotes}>Save Changes</button> */}
                     </div>
                 </div>
             </div>}
