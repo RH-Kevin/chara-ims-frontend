@@ -1,7 +1,8 @@
 import React from 'react';
 import '../css/sidenav.css';
+import { Logout } from './Logout';
 
-const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShowGroups, setShowLog, setShowQR, setShowAddDevice }) => {
+const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShowGroups, setShowLog, setShowQR, setShowAddDevice, logout }) => {
 
   const handleDashboardClick = () => {
     setShowLogin(false);
@@ -62,8 +63,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowQR(false);
     setShowAddDevice(true);
   };
-  
-  
+
   return (
     <>
         <nav className='sidenav'>
@@ -82,7 +82,9 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleAddDeviceClick}>Add New Record</a></li>
           </ul>
         </div>
+        <Logout className="logout-button" logout={logout}/>
       </div>
+      
     </div>
         </nav>
     </>

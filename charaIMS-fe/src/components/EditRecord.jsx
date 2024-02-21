@@ -24,15 +24,6 @@ const EditRecord = ({ device, isOpen, openModal, closeModal }) => {
         setDeviceServiceRecord(device.service_record);
     }, [device]);
 
-
-    const openEditModal = () => {
-        openModal(device.id);
-    };
-
-    const closeEditModal = () => {
-        setOpenEditModalId(null);
-    };
-
     const handleServiceRecord = (e) => {
         setDeviceServiceRecord(e.target.value);
     }
@@ -55,8 +46,8 @@ const EditRecord = ({ device, isOpen, openModal, closeModal }) => {
     console.log(deviceServiceRecord);
     return (
         <>
-            <button type="button" className={editButton} onClick={() => openEditModal(device.id)}>Edit Record</button>
-            {openEditModalId === device.id &&
+            <button type="button" className={editButton} onClick={() => openModal(device.id)}>Details</button>
+            {isOpen &&
                 <div className="modal" id={`id${device.id}`}>
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-100 rounded-lg" id="modal-panel">
                     <div className="main-container-grid">
@@ -102,7 +93,7 @@ const EditRecord = ({ device, isOpen, openModal, closeModal }) => {
                             <h2 className="qr-code-title">Notes</h2>
                             <NotesInput className="notesInput" value={deviceNotes} onChange={handleDeviceNotes}/>
                         </div>
-                        <button className="close" data-dismiss="modal" onClick={() => closeEditModal()}>&times;</button>
+                        <button className="close" data-dismiss="modal" onClick={() => closeModal()}>&times;</button>
                         <button className="save" data-dismiss="modal" onClick={updateRecord}>Save Changes</button>
                     </div>
                 </div>

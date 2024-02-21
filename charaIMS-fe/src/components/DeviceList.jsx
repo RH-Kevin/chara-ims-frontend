@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../css/devicelist.css"
-import SideNavbar from "./SideNav";
 import DeviceRecord from "./DeviceRecord";
 import EditRecord from "./EditRecord";
 

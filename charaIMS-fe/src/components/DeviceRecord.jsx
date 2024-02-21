@@ -13,23 +13,13 @@ const DeviceRecord = ({ device, isOpen, openModal, closeModal }) => {
 
     
     const [showModal, setShowModal] = useState(false);
-    // const [openModalId, setOpenModalId] = useState(null);
+    const [openModalId, setOpenModalId] = useState(null);
 
-    // const openModal = (id) => {
-    //     setOpenModalId(id);
-    // };
-
-    // const closeModal = () => {
-    //     setOpenModalId(null);
-    // };
-    // const openModal = () => {
-    //     openModal(device.id);
-    // };
 
     return (
         <>
             <button type="button" className={detailsButton} onClick={() => openModal(device.id)}>Details</button>
-            {openModalId === device.id &&
+            {isOpen &&
                 <div className="modal" id={`id${device.id}`}>
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-100 rounded-lg" id="modal-panel">
                     <div className="main-container-grid">

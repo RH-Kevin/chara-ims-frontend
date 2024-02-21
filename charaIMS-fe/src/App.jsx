@@ -27,14 +27,19 @@ export default function App() {
     setShowLogin(false); // Hide the login component
     setShowDashboard(true); // Show the dashboard as the initial view after login
     setShowSideNavbar(true); // Show the side navbar after login
-    // Update other state as necessary based on your app's flow
   };
+
+  const handleLogout = () => {
+    setShowLogin(true); // Hide the login component
+    setShowDashboard(false); // Show the dashboard as the initial view after login
+    setShowSideNavbar(false);
+  }
 
 
   return (
     <>
       {showLogin && <Login onLoginSuccess={handleLoginSuccess} />}
-      {showSideNavbar && <SideNavbar setShowLogin={setShowLogin} setShowDashboard={setShowDashboard} setShowDeviceList={setShowDeviceList} setShowGroups={setShowGroups} setShowLog={setShowLog} setShowQR={setShowQR} setShowAddDevice={setShowAddDevice}/>}
+      {showSideNavbar && <SideNavbar logout={handleLogout} setShowLogin={setShowLogin} setShowDashboard={setShowDashboard} setShowDeviceList={setShowDeviceList} setShowGroups={setShowGroups} setShowLog={setShowLog} setShowQR={setShowQR} setShowAddDevice={setShowAddDevice}/>}
       {showDashboard && <Dashboard/>}
       {showDeviceList && <DeviceList/>}
       {showQR && <QRReader/>}
