@@ -83,10 +83,24 @@ body {
     font-size: 25px;
 }
 
-.user-details-card {
+.user-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     text-align: left;
     align-content: left;
     padding: 20px;
+}
+
+.user-details-grid-labels {
+    grid-column: 1 / 2;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.user-details-grid-details {
+    grid-column: 2 / 3;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .qr-code {

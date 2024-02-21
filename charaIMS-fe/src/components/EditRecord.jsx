@@ -2,34 +2,61 @@ import React, { useState, useRef, useEffect } from "react";
 import "../css/devicerecord.css"
 import 'tailwindcss/tailwind.css';
 import QRGenerator from "./QRGenerator";
+import { ServiceRecordInput } from "./ServiceRecordInput";
+import { NotesInput } from "./NotesInput";
 
 
 // Tailwind Styles
 const detailsButton = "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded";
-const editButton = "bg-transparent hover:bg-yellow-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded";
+const editButton = "bg-transparent hover:bg-yellow-500 text-yellow-500 font-semibold hover:text-white py-2 px-4 border border-yellow-500 hover:border-transparent rounded";
 
 
-const DeviceRecord = ({ device, isOpen, openModal, closeModal }) => {
+const EditRecord = ({ device, isOpen, openModal, closeModal }) => {
 
-    
-    const [showModal, setShowModal] = useState(false);
-    // const [openModalId, setOpenModalId] = useState(null);
+    const [deviceNotes, setDeviceNotes] = useState(device.notes);
+    const [deviceServiceRecord, setDeviceServiceRecord] = useState(device.service_record);
+    const [deviceDetails, setDeviceDetails] = useState();
+    //const [showModal, setShowModal] = useState(false);
+    const [openEditModalId, setOpenEditModalId] = useState(null);
 
-    // const openModal = (id) => {
-    //     setOpenModalId(id);
-    // };
+    useEffect(() => {
+        setDeviceNotes(device.notes);
+        setDeviceServiceRecord(device.service_record);
+    }, [device]);
 
-    // const closeModal = () => {
-    //     setOpenModalId(null);
-    // };
-    // const openModal = () => {
-    //     openModal(device.id);
-    // };
 
+    const openEditModal = () => {
+        openModal(device.id);
+    };
+
+    const closeEditModal = () => {
+        setOpenEditModalId(null);
+    };
+
+    const handleServiceRecord = (e) => {
+        setDeviceServiceRecord(e.target.value);
+    }
+
+    const handleDeviceNotes = (e) => {
+        setDeviceNotes(e.target.value);
+    }
+
+    const updateRecord = async(e) => {
+        e.preventDefault();
+        try {
+            const body = { deviceDetails };
+            console.log(body);
+            window.location = "/";
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    console.log(deviceServiceRecord);
     return (
         <>
-            <button type="button" className={detailsButton} onClick={() => openModal(device.id)}>Details</button>
-            {openModalId === device.id &&
+            <button type="button" className={editButton} onClick={() => openEditModal(device.id)}>Edit Record</button>
+            {openEditModalId === device.id &&
                 <div className="modal" id={`id${device.id}`}>
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-100 rounded-lg" id="modal-panel">
                     <div className="main-container-grid">
@@ -39,7 +66,7 @@ const DeviceRecord = ({ device, isOpen, openModal, closeModal }) => {
                         <div className="user-details block max-w-xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <h2 className="user-info">User Details</h2>
                             <br/>
-                            <div className="user-details-card>">
+                            <div className="user-details-card">
                                 <div className="user-details-grid">
                                 <div className="user-details-grid-labels">
                                     <div>First Name</div>
@@ -69,11 +96,14 @@ const DeviceRecord = ({ device, isOpen, openModal, closeModal }) => {
                         </div>
                         <div className="service-record block max-w-2xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <h2 className="qr-code-title">Service Record</h2>
+                            <ServiceRecordInput className="serviceRecordInput" value={deviceServiceRecord} onChange={handleServiceRecord}/>
                         </div>
                         <div className="notes block max-w-2xl rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                             <h2 className="qr-code-title">Notes</h2>
+                            <NotesInput className="notesInput" value={deviceNotes} onChange={handleDeviceNotes}/>
                         </div>
-                        <button className="close" data-dismiss="modal" onClick={() => closeModal()}>&times;</button>
+                        <button className="close" data-dismiss="modal" onClick={() => closeEditModal()}>&times;</button>
+                        <button className="save" data-dismiss="modal" onClick={updateRecord}>Save Changes</button>
                     </div>
                 </div>
             </div>}
@@ -81,4 +111,4 @@ const DeviceRecord = ({ device, isOpen, openModal, closeModal }) => {
     )
 };
 
-export default DeviceRecord;
+export default EditRecord;
