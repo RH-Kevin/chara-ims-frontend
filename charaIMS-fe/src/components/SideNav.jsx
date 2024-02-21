@@ -62,6 +62,16 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowQR(false);
     setShowAddDevice(true);
   };
+
+  const handleLogoutClick = () => {
+    setShowLogin(true);
+    setShowDashboard(false);
+    setShowDeviceList(false);
+    setShowGroups(false);
+    setShowLog(false);
+    setShowQR(false);
+    setShowAddDevice(false);
+  }
   
   
   return (
@@ -80,6 +90,8 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleLogClick}>Log</a></li>
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleQRClick}>Scan QR</a></li>
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleAddDeviceClick}>Add New Record</a></li>
+            <br/>
+            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleLogoutClick}>Logout</a></li>
           </ul>
         </div>
       </div>
