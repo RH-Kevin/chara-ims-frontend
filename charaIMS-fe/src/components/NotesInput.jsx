@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/inputs.css";
 
 export const NotesInput = ({ value, onChange, className }) => {
   

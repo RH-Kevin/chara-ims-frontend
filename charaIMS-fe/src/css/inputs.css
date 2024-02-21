@@ -1,0 +1,4 @@
+.textarea {
+    overflow-y: auto;
+    max-height: 2000px;
+}
