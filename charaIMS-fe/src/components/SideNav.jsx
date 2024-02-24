@@ -2,13 +2,13 @@ import React from 'react';
 import '../css/sidenav.css';
 import { Logout } from './Logout';
 
-const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShowGroups, setShowLog, setShowQR, setShowAddDevice, logout }) => {
+const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShowUsers, setShowLog, setShowQR, setShowAddDevice, logout }) => {
 
   const handleDashboardClick = () => {
     setShowLogin(false);
     setShowDashboard(true);
     setShowDeviceList(false);
-    setShowGroups(false);
+    setShowUsers(false);
     setShowLog(false);
     setShowQR(false);
     setShowAddDevice(false);
@@ -18,17 +18,17 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowLogin(false);
     setShowDashboard(false);
     setShowDeviceList(true);
-    setShowGroups(false);
+    setShowUsers(false);
     setShowLog(false);
     setShowQR(false);
     setShowAddDevice(false);
   };
 
-  const handleGroupsClick = () => {
+  const handleUsersClick = () => {
     setShowLogin(false);
     setShowDashboard(false);
     setShowDeviceList(false);
-    setShowGroups(true);
+    setShowUsers(true);
     setShowLog(false);
     setShowQR(false);
     setShowAddDevice(false);
@@ -38,7 +38,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowLogin(false);
     setShowDashboard(false);
     setShowDeviceList(false);
-    setShowGroups(false);
+    setShowUsers(false);
     setShowLog(true);
     setShowQR(false);
     setShowAddDevice(false);
@@ -48,7 +48,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowLogin(false);
     setShowDashboard(false);
     setShowDeviceList(false);
-    setShowGroups(false);
+    setShowUsers(false);
     setShowLog(false);
     setShowQR(true);
     setShowAddDevice(false);
@@ -58,7 +58,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
     setShowLogin(false);
     setShowDashboard(false);
     setShowDeviceList(false);
-    setShowGroups(false);
+    setShowUsers(false);
     setShowLog(false);
     setShowQR(false);
     setShowAddDevice(true);
@@ -76,7 +76,7 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
           <ul className="mt-4">
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleDashboardClick}>Dashboard</a></li>
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleDeviceListClick}>Device List</a></li>
-            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleGroupsClick}>Groups</a></li>
+            <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleUsersClick}>Users & Admins</a></li>
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleLogClick}>Log</a></li>
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleQRClick}>Scan QR</a></li>
             <li><a href="#" className="block py-2 px-4 hover:bg-gray-700" onClick={handleAddDeviceClick}>Add New Record</a></li>
