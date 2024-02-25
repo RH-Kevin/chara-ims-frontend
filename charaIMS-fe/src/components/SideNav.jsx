@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/sidenav.css';
 import { Logout } from './Logout';
+import 'tailwindcss/tailwind.css';
 
 const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShowUsers, setShowLog, setShowQR, setShowAddDevice, logout }) => {
 
@@ -69,7 +70,6 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
         <nav className='sidenav'>
         <div className="flex h-screen">
       {/* Sidebar */}
-      <div className="w-5/5 bg-gray-400 text-black">
         <div className="p-4" >
           <h1 className="text-xl font-semibold" >Chara IMS</h1>
           <br/><br/>
@@ -83,8 +83,6 @@ const SideNavbar = ({ setShowLogin, setShowDashboard, setShowDeviceList, setShow
           </ul>
         </div>
         <Logout className="logout-button" logout={logout}/>
-      </div>
-      
     </div>
         </nav>
     </>

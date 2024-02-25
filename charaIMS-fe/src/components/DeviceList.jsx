@@ -34,11 +34,14 @@ const DeviceList = () => {
             const response = await fetch(`${link}/devices`);
             const jsonData = await response.json();
             setDevices(jsonData);
+            console.log(jsonData);
         } catch (error) {
             console.error(error);
         }
     }
 
+
+    
     // Fetches device list when component mounts
     useEffect(() => {
         getDevices();
