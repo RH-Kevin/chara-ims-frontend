@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Html5QrcodeScanner } from 'html5-qrcode';
+import "../css/qrreader.css";
 
 const QRReader = () => {
 
@@ -33,7 +34,7 @@ const QRReader = () => {
             <div className="App">
                 <h1>QR Code Scanning</h1>
                 { scanResult 
-                ? <div>Success: <a href={"http://localhost:3000"}>{scanResult}</a></div>: <div id="reader"></div>}
+                ? <div>Success: <a id="qr-link" href={"http://localhost:3000"}>{scanResult}</a></div>: <div id="reader"></div>}
             </div>
         </>
     )

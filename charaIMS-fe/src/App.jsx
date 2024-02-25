@@ -7,6 +7,7 @@ import DeviceList from './components/DeviceList';
 import SideNavbar from './components/SideNav';
 import QRReader from './components/QRReader';
 import AddDevice from './components/AddRecord';
+import AdminPanel from './components/AdminPanel';
 
 
 
@@ -17,7 +18,7 @@ export default function App() {
   const [showLogin, setShowLogin] = useState(true);
   const [showDashboard, setShowDashboard] = useState(false);
   const [showDeviceList, setShowDeviceList] = useState(false);
-  const [showGroups, setShowGroups] = useState(false);
+  const [showUsers, setShowUsers] = useState(false);
   const [showLog, setShowLog] = useState(false);
   const [showQR, setShowQR] = useState(false);
   const [showAddDevice, setShowAddDevice] = useState(false);
@@ -39,8 +40,9 @@ export default function App() {
   return (
     <>
       {showLogin && <Login onLoginSuccess={handleLoginSuccess} />}
-      {showSideNavbar && <SideNavbar logout={handleLogout} setShowLogin={setShowLogin} setShowDashboard={setShowDashboard} setShowDeviceList={setShowDeviceList} setShowGroups={setShowGroups} setShowLog={setShowLog} setShowQR={setShowQR} setShowAddDevice={setShowAddDevice}/>}
+      {showSideNavbar && <SideNavbar logout={handleLogout} setShowLogin={setShowLogin} setShowDashboard={setShowDashboard} setShowDeviceList={setShowDeviceList} setShowUsers={setShowUsers} setShowLog={setShowLog} setShowQR={setShowQR} setShowAddDevice={setShowAddDevice}/>}
       {showDashboard && <Dashboard/>}
+      {showUsers && <AdminPanel/>}
       {showDeviceList && <DeviceList/>}
       {showQR && <QRReader/>}
       {showAddDevice && <AddDevice/>}
