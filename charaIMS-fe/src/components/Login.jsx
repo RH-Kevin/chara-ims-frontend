@@ -52,11 +52,7 @@ export default function Login({onLoginSuccess}) {
                   <div className="md:mx-6 md:p-12">
                     {/* <!--Logo--> */}
                     <div className="text-center">
-                      <img
-                        className="mx-auto w-48"
-                        src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                        alt="logo"
-                      />
+                      
                       <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
                         Chara Inventory Management System
                       </h4>
@@ -132,10 +128,7 @@ export default function Login({onLoginSuccess}) {
                       Chara IMS
                     </h4>
                     <p className="text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Version 0.7 (Developer Preview)
                     </p>
                   </div>
                 </div>
