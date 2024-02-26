@@ -79,7 +79,7 @@ const DeviceList = () => {
                                         <td className="whitespace-nowrap  px-6 py-4">Device</td>
                                         {/* <td className="whitespace-nowrap  px-6 py-4">{device.email}</td> */}
                                         <td className="whitespace-nowrap  px-6 py-4">{device.date_assigned}</td>
-                                        <td className="whitespace-nowrap  px-6 py-4">{device.warranty}</td>
+                                        <td className="whitespace-nowrap  px-6 py-4">{device.warranty_end}</td>
                                         <td className="whitespace-nowrap  px-6 py-4">{device.status}</td>
                                         <td className="whitespace-nowrap  px-6 py-4">{device.location}</td>
                                         <td><DeviceRecord device={device} isOpen={openDeviceModalId === device.id} openModal={openDeviceModal} closeModal={closeModal}/></td>
