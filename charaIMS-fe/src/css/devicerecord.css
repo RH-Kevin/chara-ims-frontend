@@ -86,6 +86,7 @@ body {
 
 .user-info {
     font-size: 25px;
+    
 }
 
 .user-details-grid {
@@ -113,7 +114,4 @@ body {
     padding: 20px;
 }
 
-.regenerate-qr-button {
-    position: relative;
-    top: 180px;
-}
+
